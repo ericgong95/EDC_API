@@ -57,10 +57,6 @@
     <input type="hidden" name="call" value="no" />
     <input type="hidden" name="run" value="login" />
     
-
-    <!-- #pslxclaire.informatica.com, psvrh7iwcmg1001.informatica.com
-    #Administrator, gparthak
-    #Admin, welcome1 -->
 </form>
 </body>
 </html>
