@@ -121,37 +121,6 @@
 		String catalog = (String) session.getAttribute("catalog");
 		String username = (String) session.getAttribute("usernameKey");
 		String password = (String) session.getAttribute("passwordKey");
-
-		if (action != null && action.equals("Preview")) {
-			/* try {
-				out.println(BGAssociationReport.main(action, catalog, username, password));
-			} catch (Exception e) {
-				e.printStackTrace();
-			} */
-
-		}
-
-		if (action != null && action.equals("Download")) {
-
-			/* 	try{
-					out.println(catalog);
-					String testTerm = BGAssociationReport.main(action,catalog,username,password);
-					String strPath = "/Users/egong/Documents/Java.txt";
-					File strFile = new File(strPath);
-					boolean fileCreated = strFile.createNewFile();
-					 
-					//File appending
-					Writer objWriter = new BufferedWriter(new FileWriter(strFile));
-					objWriter.write(testTerm);
-					objWriter.flush();
-					objWriter.close();
-				    
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}  */
-
-		}
 	%>
 	
 	<!--Informatica Logo -->
@@ -160,7 +129,7 @@
 <form class="form-inline">
 	<!-- Select Attributes -->
 	<div id="wrap"  class="input-group-prepend">
-	    <label class="input-group-text" for="inputGroupSelect01">Attribute</label>
+	    <label class="input-group-text" name="attribute[]" for="inputGroupSelect01">Attribute</label>
 	  	<select class="selectpicker show-tick">
 					<c:forEach var="myMap"
 						items="<%=ObjectFilteredByCustomAttributeValueReport.main(catalog, username, password)%>">
@@ -171,7 +140,7 @@
 		
     <div class="col-auto">
       <label class="sr-only" for="inlineFormInput">Word to Filter On</label>
-      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Filter On...">
+      <input type="text" class="form-control mb-2" name="filter[]" id="inlineFormInput" placeholder="Filter On...">
     
     <button	 class="btn btn-primary mb-2" >Submit</button>
     </div>
@@ -181,6 +150,7 @@
     <script type="text/javascript">
     $(function() {
 		$('#add').click(function () {
+			$('#add1').append('<label class="input-group-text" for="inputGroupSelect01">Attribute</label> <select class="selectpicker show-tick"> <c:forEach var="myMap" items="<%=ObjectFilteredByCustomAttributeValueReport.main(catalog, username, password)%>"> <option value="${myMap.value}">${myMap.key}</option></c:forEach></select>');
 		   $('#add1').append('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Filter On...">');
 		});    	
     })
