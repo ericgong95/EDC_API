@@ -77,8 +77,8 @@ public class FuzzyBGAssociater {
 				
 				sb.append(colName);
 				//List<ExtractedResult> results= FuzzySearch.extractAll(colName, termMap.values(), THRESHOLD);
-                           List<ExtractedResult> results= FuzzySearch.extractSorted(colName, termMap.values(), THRESHOLD);
-
+                List<ExtractedResult> results= FuzzySearch.extractSorted(colName, termMap.values(), THRESHOLD);
+                //System.out.println(results);
 				
 				if(!results.isEmpty()) {
 				//System.out.println(columnName+":"+term);

@@ -57,7 +57,6 @@
     <input type="hidden" name="call" value="no" />
     <input type="hidden" name="run" value="login" />
     
-<%out.println(session.getAttribute("linkMap")); %>
 
     <!-- #pslxclaire.informatica.com, psvrh7iwcmg1001.informatica.com
     #Administrator, gparthak
@@ -65,11 +64,3 @@
 </form>
 </body>
 </html>
-<%-- <% for(int i=1;i<((HashMap<String,String>) session.getAttribute("linkMap")).size();i++){
-				%>
-			      <option value="<%= i%>"><%= ((HashMap<String,String>) session.getAttribute("linkMap")).get(i) %></option>
-			<% } %>  --%>
-			
-			
-<%-- <option value=<%= ObjectFilteredByCustomAttributeValueReport.main(catalog, username, password).keySet() %>><%= ObjectFilteredByCustomAttributeValueReport.main(catalog, username, password).keySet()%></option>
-			 --%>

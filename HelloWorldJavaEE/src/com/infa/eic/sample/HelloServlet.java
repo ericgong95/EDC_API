@@ -46,7 +46,7 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO
-		request.getRequestDispatcher("NewFile1.jsp").forward(request, response);
+		request.getRequestDispatcher("Main.jsp").forward(request, response);
 //		HttpSession session=request.getSession();
 //		//DeleteDbFiles.execute("~", "testdb", true);
 //
@@ -330,7 +330,7 @@ public class HelloServlet extends HttpServlet {
 				catch (Exception e) {
 					e.printStackTrace();
 				}
-				request.getRequestDispatcher("NewFile1.jsp").forward(request, response);
+				request.getRequestDispatcher("Main.jsp").forward(request, response);
 			}
 			
 		}

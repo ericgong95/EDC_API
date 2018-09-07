@@ -155,18 +155,44 @@
 	%>
 	
 	<!--Informatica Logo -->
-	<img src="INF_Logo_Hor_FC_RGB_2000.jpg" width="500" height="172" border="0" />
+	<img src="INF_Logo_Hor_FC_RGB_2000.jpg" width="450" height="172" border="0" />
 
+<form class="form-inline">
 	<!-- Select Attributes -->
-	<div id="wrap" style='float: right-down' class="input-group-prepend">
+	<div id="wrap"  class="input-group-prepend">
 	    <label class="input-group-text" for="inputGroupSelect01">Attribute</label>
-	  	<select class="selectpicker show-tick" multiple>
+	  	<select class="selectpicker show-tick">
 					<c:forEach var="myMap"
 						items="<%=ObjectFilteredByCustomAttributeValueReport.main(catalog, username, password)%>">
 						<option value="${myMap.value}">${myMap.key}</option>
 					</c:forEach>
 		</select>
-	</div>
+		
+		
+    <div class="col-auto">
+      <label class="sr-only" for="inlineFormInput">Word to Filter On</label>
+      <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Filter On...">
+    
+    <button	 class="btn btn-primary mb-2" >Submit</button>
+    </div>
+    </div>
+    <button id = add style='float: right-down' type="button"  class="btn btn-primary mb-2">Add Filters</button>
+
+    <script type="text/javascript">
+    $(function() {
+		$('#add').click(function () {
+		   $('#add1').append('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Filter On...">');
+		});    	
+    })
+    </script>
+</form>
+
+<form id = add1 action="LoginS" method="post">
+<!-- Add Filter Textbox -->
+</form>
+
+
+	
 
 
 

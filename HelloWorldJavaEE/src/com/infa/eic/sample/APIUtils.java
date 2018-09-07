@@ -83,14 +83,15 @@ public final class APIUtils {
 	public static final HashMap<String, String> getAssetsByType(String resourceName, String type, Boolean Preview) throws Exception {
 			
 		int total = 1000;
-		int offset = 0;
+		int offset = 0; 
 		// Get objects in increments of 300
-		final int pageSize = 300;
+		final int pageSize = 300; 
 
 		// Standard Lucene style object query to get assets of a given type from a given
 		// resource.
+		
 		String query = CORE_RESOURCE_NAME + ":\"" + resourceName + "\" AND core.allclassTypes:\"" + type + "\"";
-
+		System.out.println("Query: " + query);
 		HashMap<String, String> retMap = new HashMap<String, String>();
 
 		while (offset < total) {
@@ -101,11 +102,13 @@ public final class APIUtils {
 
 			total = response.getMetadata().getTotalCount().intValue();
 			offset += pageSize;
-
+			
 			// Iterate over returned objects and add them to the return hashmap
 			for (ObjectResponse or : response.getItems()) {
+				//System.out.println("Object Response: " + or);
 				String curVal = getValue(or, CORE_NAME);
 				if (curVal != null) {
+					//System.out.println("ID: " + or.getId() + " Value: " + curVal);
 					// Hashkey is the object ID.
 					retMap.put(or.getId(), curVal);
 				}
